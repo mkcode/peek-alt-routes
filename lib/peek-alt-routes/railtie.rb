@@ -1,5 +1,5 @@
 module Peek
-  module Git
+  module AltRoutes
     class Railtie < ::Rails::Engine
     end
   end

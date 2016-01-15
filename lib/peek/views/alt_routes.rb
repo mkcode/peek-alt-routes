@@ -1,6 +1,6 @@
 module Peek
   module Views
-    class Git < View
+    class AltRoutes < View
       # A view to get some insight into the current state of git
       # for your project. It gives you the sha, branch, and compare
       # url.

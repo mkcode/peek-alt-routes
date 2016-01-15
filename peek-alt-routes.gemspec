@@ -1,11 +1,11 @@
 # -*- encoding: utf-8 -*-
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'peek-git/version'
+require 'peek-alt-routes/version'
 
 Gem::Specification.new do |gem|
-  gem.name          = 'peek-git'
-  gem.version       = Peek::Git::VERSION
+  gem.name          = 'peek-alt-routes'
+  gem.version       = Peek::AltRoutes::VERSION
   gem.authors       = ['Garrett Bjerkhoel']
   gem.email         = ['me@garrettbjerkhoel.com']
   gem.description   = %q{Take a peek into the Git info of your Rails application.}

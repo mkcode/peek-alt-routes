@@ -1,4 +1,4 @@
-# Peek::Git
+# Peek::AltRoutes
 
 Take a peek into the Git info of your Rails application.
 

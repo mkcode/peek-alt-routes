@@ -1,5 +1,5 @@
 module Peek
-  module Git
+  module AltRoutes
     VERSION = '1.0.2'
   end
 end

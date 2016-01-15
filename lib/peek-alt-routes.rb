@@ -1,3 +1,3 @@
-require 'peek/views/git'
-require 'peek-git/version'
-require 'peek-git/railtie'
+require 'peek/views/alt_routes'
+require 'peek-alt-routes/version'
+require 'peek-alt-routes/railtie'
