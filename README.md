@@ -2,6 +2,9 @@
 
 Easily toggle alternate controllers and routes.
 
+![screen shot 2016-01-15 at 11 33 56 pm](https://cloud.githubusercontent.com/assets/283496/12372401/67358846-bc23-11e5-83eb-20778411ff0d.png)
+
+
 Things this peek view provides:
 
 - A ready to go Rails route constraint for switching controllers and routes
