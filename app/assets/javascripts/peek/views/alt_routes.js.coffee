@@ -1,6 +1,6 @@
 class PeekAltRoutes
   checkboxEl: '.peek-alt-routes input'
-  tipsyEl:    '.peek-alt-routes .btn'
+  tipsyEl:    '.peek-alt-routes .peek-alt-routes-btn'
 
   render: ->
     $(@checkboxEl).on 'change', @checkboxClicked

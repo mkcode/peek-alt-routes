@@ -1,5 +1,5 @@
 <div class="peek-alt-routes">
-  <div class="btn <%= 'active' if request.peek_alt_routes? %>">
+  <div class="peek-alt-routes-btn <%= 'active' if request.peek_alt_routes? %>">
     <%= check_box_tag 'peek-alt-routes', '1', request.peek_alt_routes? %>
     <label for="peek-alt-routes"><%= view.name %></label>
   </div>
