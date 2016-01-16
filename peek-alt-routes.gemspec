@@ -6,11 +6,11 @@ require 'peek-alt-routes/version'
 Gem::Specification.new do |gem|
   gem.name          = 'peek-alt-routes'
   gem.version       = Peek::AltRoutes::VERSION
-  gem.authors       = ['Garrett Bjerkhoel']
-  gem.email         = ['me@garrettbjerkhoel.com']
-  gem.description   = %q{Take a peek into the Git info of your Rails application.}
-  gem.summary       = %q{Take a peek into the Git info of your Rails application.}
-  gem.homepage      = 'https://github.com/peek/peek-git'
+  gem.authors       = ['Chris Ewald']
+  gem.email         = ['chrisewald@gmail.com']
+  gem.description   = %q{Easily toggle alternative controllers and routes with peek.}
+  gem.summary       = %q{Easily toggle alternative controllers and routes with peek.}
+  gem.homepage      = 'https://github.com/mkcode/peek-alt-routes'
 
   gem.files         = `git ls-files`.split($/)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
