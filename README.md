@@ -7,7 +7,7 @@ Easily toggle alternate controllers and routes.
 
 Things this peek view provides:
 
-- A ready to go Rails route constraint for switching controllers and routes
+- A ready to go route constraint for switching controllers/views or routes
 - A toggle button to quickly enable and disable the alternate routes
 
 ## Installation
@@ -32,10 +32,10 @@ Add the following to your `config/initializers/peek.rb`:
 Peek.into Peek::Views::AltRoutes
 ```
 
-You may provide a `name` option to the Peek view to set the button display text.
+You may provide a `name` option to the Peek view to set the button display text:
 
 ```ruby
-Peek.into Peek::Views::AltRoutes, name: 'Staff Redesign'
+Peek.into Peek::Views::AltRoutes, name: 'Site Redesign'
 ```
 
 Add the following to your `app/assets/javascripts/application.js`:
@@ -58,6 +58,7 @@ Use the `peek_alt_routes?` route constraint as you see fit. In `config/routes.rb
   # Remember that Rails matches the first route it finds (top to bottom) so
   # be sure to put any constrained routes before the open routes.
 
+  # Route group example:
   constraints peek_alt_routes?: true do
     get '/about', to: 'next_site#about'
     get '/contact', to: 'next_site#contact'
@@ -65,10 +66,10 @@ Use the `peek_alt_routes?` route constraint as you see fit. In `config/routes.rb
   get '/about', to: 'site#about'
   get '/contact', to: 'site#contact'
 
-  # single case
+  # Single case example:
   get 'new-site-only' to: 'new_site#only', constraints: { peek_alt_routes?: true }
 
-  # DRY routes using routing concerns ( >= Rails 4.0 )
+  # DRY routes using routing concerns ( >= Rails 4.0 ) example:
   concern :static_pages do
     get '/about, action: 'about'
     get '/contact, action: 'contact'
