@@ -1,14 +1,6 @@
-<div class="bucket">
-  <span class="current-branch css-truncate expandable">
-    <span class="current-branch-name css-truncate-target">
-      <%= view.branch_name %>
-    </span>
-    <span class="hidden">
-      <% if view.nwo? %>
-        <a href="<%= view.compare_url %>" target="_blank"><%= view.short_sha %></a>
-      <% else %>
-        <%= view.short_sha %>
-      <% end %>
-    </span>
-  </span>
+<div class="peek-alt-routes">
+  <div class="btn">
+    <%= check_box_tag 'peek-alt-routes', '1', request.peek_alt_routes? %>
+    <label for="peek-alt-routes"><%= view.name %></label>
+  </div>
 </div>
