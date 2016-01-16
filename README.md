@@ -49,7 +49,7 @@ Add the following to your `app/assets/javascripts/application.css`:
  */
 ```
 
-Use the `peek_alt_routes?` route constraint. In `config/routes.rb`:
+Use the `peek_alt_routes?` route constraint as you see fit. In `config/routes.rb`:
 
 ```ruby
   # Remember that Rails matches the first route it finds (top to bottom) so

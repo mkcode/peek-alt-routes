@@ -8,8 +8,8 @@ Gem::Specification.new do |gem|
   gem.version       = Peek::AltRoutes::VERSION
   gem.authors       = ['Chris Ewald']
   gem.email         = ['chrisewald@gmail.com']
-  gem.description   = %q{Easily toggle alternative controllers and routes with peek.}
-  gem.summary       = %q{Easily toggle alternative controllers and routes with peek.}
+  gem.description   = %q{Easily toggle alternate controllers and routes with peek.}
+  gem.summary       = %q{Easily toggle alternate controllers and routes with peek.}
   gem.homepage      = 'https://github.com/mkcode/peek-alt-routes'
 
   gem.files         = `git ls-files`.split($/)
