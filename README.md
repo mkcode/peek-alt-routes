@@ -1,17 +1,17 @@
 # Peek::AltRoutes
 
-Take a peek into the Git info of your Rails application.
+Easily toggle alternate controllers and routes.
 
 Things this peek view provides:
 
-- View the current branch name
-- Compare the diff of the current revision on your GitHub repo
+- A ready to go Rails route constraint for switching controllers and routes
+- A toggle button to quickly enable and disable the alternate routes
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
-    gem 'peek-git'
+    gem 'peek-alt-routes
 
 And then execute:
 
@@ -19,49 +19,73 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install peek-git
+    $ gem install peek-alt-routes
 
 ## Usage
 
 Add the following to your `config/initializers/peek.rb`:
 
 ```ruby
-Peek.into Peek::Views::Git
+Peek.into Peek::Views::AltRoutes
 ```
 
-You will need to set the GitHub project's name with owner if you plan on
-comparing the current ref against your default branch on GitHub.
+You may provide a `name` option to the Peek view to set the button display text.
 
 ```ruby
-# nwo - name with owner - owner/name
-Peek.into Peek::Views::Git, :nwo => 'dewski/json_builder'
+Peek.into Peek::Views::AltRoutes, name: 'Staff Redesign'
 ```
 
-You can also manually set each of the following optional options:
+Add the following to your `app/assets/javascripts/application.js`:
 
-- SHA
-- Default Branch (master by default)
-- Branch Name
-- Domain Name (github.com by default)
-- Protocol (https by default)
+```javascript
+//= require peek/views/alt_routes
+```
+
+Add the following to your `app/assets/javascripts/application.css`:
+
+```css
+/*
+ *= require peek/views/alt_routes
+ */
+```
+
+Use the `peek_alt_routes?` route constraint. In `config/routes.rb`:
 
 ```ruby
-Peek.into Peek::Views::Git, \
-  :sha => '740f6b7b11b8717efaf51ddb98ce23394544f7e0',
-  :default_branch => 'rails4.0',
-  :branch_name => 'integration',
-  :domain => 'github.com',
-  :protocol => 'https'
+  # Remember that Rails matches the first route it finds (top to bottom) so
+  # be sure to put any constrained routes before the open routes.
+
+  constraints peek_alt_routes?: true do
+    get '/about', to: 'next_site#about'
+    get '/contact', to: 'next_site#contact'
+  end
+  get '/about', to: 'site#about'
+  get '/contact', to: 'site#contact'
+
+  # single case
+  get 'new-site-only' to: 'new_site#only', constraints: { peek_alt_routes?: true }
+
+  # DRY routes using routing concerns ( >= Rails 4.0 )
+  concern :static_pages do
+    get '/about, action: 'about'
+    get '/contact, action: 'contact'
+  end
+  scope controller: 'next_site', constraints: { peek_alt_routes?: true } do
+    concerns :static_pages
+    get '/help', action: 'help'
+  end
+  scope controller: 'site' do
+    concerns :static_pages
+  end
+
 ```
 
-## Using Peek::Git on Heroku
+## Notes
 
-Unfortunately Heroku [removes](https://devcenter.heroku.com/articles/slug-compiler#compilation)
-the .git directory during slug compilation which doesn't make it possible to
-view the current deployed SHA or branch.
-
-The one workaround is to set the GIT_SHA and GIT_BRANCH ENV variables within
-your deploy process.
+ * Be sure to render the Peek bar in your alternate views so it may be disabled.
+ * Be sure to implement user security into your alternate controllers. Peek-alt-routes
+ simply sets and checks a cookie for determining which routes to use.
+ * The `peek_alt_routes?` method is available in controllers as well should you need it.
 
 ## Contributing
 
