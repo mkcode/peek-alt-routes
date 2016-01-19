@@ -84,6 +84,15 @@ Use the `peek_alt_routes?` route constraint as you see fit. In `config/routes.rb
 
 ```
 
+## When to use this vs Flipper
+
+ * [Flipper](https://github.com/jnunemaker/flipper) is a full featured gem that
+   is supplementary to this gem.
+ * Prefer this gem only for cases when a full visual redesign is wanted. This
+   gem only does quick user facing feature toggling better than flipper.
+ * Use flipper for multiple or non-visual feature toggles or when advanced roll
+   out procedures are needed.
+
 ## Notes
 
  * Be sure to render the Peek bar in your alternate views so it may be disabled.
