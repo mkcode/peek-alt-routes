@@ -14,7 +14,7 @@ Things this peek view provides:
 
 Add this line to your application's Gemfile:
 
-    gem 'peek-alt-routes
+    gem 'peek-alt-routes'
 
 And then execute:
 
