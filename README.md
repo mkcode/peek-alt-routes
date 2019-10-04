@@ -14,15 +14,21 @@ Things this peek view provides:
 
 Add this line to your application's Gemfile:
 
-    gem 'peek-alt-routes
+```ruby
+gem 'peek-alt-routes'
+```
 
 And then execute:
 
-    $ bundle
+```sh
+$ bundle
+```
 
 Or install it yourself as:
 
-    $ gem install peek-alt-routes
+```sh
+$ gem install peek-alt-routes
+```
 
 ## Usage
 
